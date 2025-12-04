@@ -6,35 +6,43 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Creo los objetos necesarios
+        // INSTANCIAR CLASES
         LZ78 lz = new LZ78();
         Empaquetador pack = new Empaquetador();
         MisEstadisticas stats = new MisEstadisticas();
 
-        // Creo un texto de prueba
+        // 1. CREAR DATOS DE PRUEBA
         string textoOriginal = "";
-        for (int i = 0; i < 200; i++) textoOriginal += "HOLA_ESTO_ES_UNA_PRUEBA_REPETIDA_";
+        // Repetimos texto para que LZ78 comprima bien
+        for (int i = 0; i < 200; i++) textoOriginal += "HOLA_ESTO_ES_UNA_PRUEBA_REPETJK" +
+                "DBASBDAEDAUIDFUIASHFDIUHSDIUJFCHSDUFFKHDJHBCHJAESBFUYWEASGFUIOYWEAHUI8OFIDA_HOLA" +
+                "_ESTO_ES_UNA_PRUEBA_REPETJKDBASBDAEDAUIDFUIASHFDIUHSDIUJFCHSDUFFKHDJHBCHJAESBFUYWEASGFUIOYWEAHUI8" +
+                "OFIDA_HOLA_ESTO_ES_UNA_PRUEBA_REPETJKDBASBDAEDAUIDFUIASHFDIUHSDIUJFCHSDUFFKHDJHBCHJAESBFUYWEASGFUIOYWEAHUI8OFIDA_HOLA_E" +
+                "STO_ES_UNA_PRUEBA_REPETJKDBASBDAEDAUIDFUIASHFDIUHSDIUJFCHSDUFFKHDJHBCHJAESBFUYWEASGFUIOYWEAHUI8OFIDA_HOLA_ESTO_ES_UNA_PRUEBA_REPETJKDBASBDAEDAUIDFUI" +
+                "ASHFDIUHSDIUJFCHSDUFFKHDJHBCHJAESBFUYWEHOLA_ESTO_ES_UNA_PRUEBA_REPETJKDBASBDAEDAUIDFUIASHFDIUHSDIUJFCHSDUFFKHDJHBCHJAESBFUYWEASGFUIOYWEAHUI8OF" +
+                "IDA_HOLA_ESTO_ES_UNA_PRUEBA_REPETJKDBASBDAEDAUIDFUIASHFDIUHSDIUJFCHSDUFFKHDJHBCHJAESBFUYWEASGFUIOYWEAHUI8OFIDA_HOLA_ESTO_ES_UNA_PRUEBA_REPETJKDBASBDAE" +
+                "DAUIDFUIASHFDIUHSDIUJFCHSDUFFKHDJHBCHJAESBFUYWEASGFUIOYWEAHUI8OFIDA_ASGFUIOYWEAHUI8OFIDA_HOLA_ESTO_ES_UNA_PRUEBA_REPETJKDBASBDAEDAUIDFUIASHFDIUHSDI" +
+                "UJFCHSDUFFKHDJHBCHJAESBFUYWEASGFUIOYW" +
+                "EAHUI8OFIDA_HOLA_ESTO_ES_UNA_PRUEBA_REPETJKDBASBDAEDAUIDFUIASHFDIUHSDIUJFCHSDUFFKHDJHBCHJAESBFUYWEASGFUIOYWEAHUI8OFIDA_HOLA_ESTO_ES_UNA" +
+                "_PRUEBA_REPETJKDBASBDAEDAUIDFUIASHFDIUHSDIUJFCHSDUFFKHDJHBCHJAESBFUYWEASGFUIOYWEAHUI8OFIDA_HOLA_ESTO_ES_UNA_PRUEBA_REPETJKDBASBDAEDAUIDF" +
+                "UIASHFDIUHSDIUJFCHSDUFFKHDJHBCHJAESBFUYWEASGFUIOYWEAHUI8OFIDA_HOLA_ESTO_ES_UNA_PRUEBA_REPETJKDBASBDAEDAUIDFUIASHFDIUHSDIUJFCHSDUFFKHDJH" +
+                "BCHJAESBFUYWEASGFUIOYWEAHUI8OFIDA_";
 
-        Console.WriteLine("Texto tamaño: " + textoOriginal.Length);
+        Console.WriteLine("Texto tamaño original: " + textoOriginal.Length);
+        Console.WriteLine("Comenzando prueba");
 
-        // Inicio el proceso
-        Console.WriteLine("Comenzando");
-
-        // 1. Empiezo a medir
+        // 2. MEDIR Y COMPRIMIR
         stats.Empezar();
 
-        // 2. Hago la compresión
         var lista = lz.Comprimir(textoOriginal);
         byte[] bytes = lz.TuplasABytes(lista);
 
-        // Guardo el archivo
-        pack.Guardar("prueba.myzip", bytes, "test.txt", 2);
+        pack.Guardar("prueba.myzip", bytes, "test.txt", textoOriginal.Length, 2);
 
-        // 3. Termino de medir
         stats.Terminar(textoOriginal.Length, bytes.Length);
 
+        // 3. RESULTADOS
         Console.WriteLine(stats.ObtenerResumen());
-
         Console.ReadLine();
     }
 }
