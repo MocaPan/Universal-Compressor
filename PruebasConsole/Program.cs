@@ -28,6 +28,7 @@ class Program
                 "UIASHFDIUHSDIUJFCHSDUFFKHDJHBCHJAESBFUYWEASGFUIOYWEAHUI8OFIDA_HOLA_ESTO_ES_UNA_PRUEBA_REPETJKDBASBDAEDAUIDFUIASHFDIUHSDIUJFCHSDUFFKHDJH" +
                 "BCHJAESBFUYWEASGFUIOYWEAHUI8OFIDA_";
 
+        Console.WriteLine(textoOriginal);
         Console.WriteLine("Texto tamaño original: " + textoOriginal.Length);
         Console.WriteLine("Comenzando prueba");
 
