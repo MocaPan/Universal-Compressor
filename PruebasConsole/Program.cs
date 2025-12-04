@@ -6,17 +6,19 @@ class Program
 {
     static void Main(string[] args)
     {
+        // Creo los objetos necesarios
         LZ78 lz = new LZ78();
         Empaquetador pack = new Empaquetador();
-        MisEstadisticas stats = new MisEstadisticas(); // Instancio mis estadisticas
+        MisEstadisticas stats = new MisEstadisticas();
 
+        // Creo un texto de prueba
         string textoOriginal = "";
         for (int i = 0; i < 200; i++) textoOriginal += "HOLA_ESTO_ES_UNA_PRUEBA_REPETIDA_";
 
         Console.WriteLine("Texto tamaño: " + textoOriginal.Length);
 
-        // --- COMPRIMIR ---
-        Console.WriteLine("Comenzando...");
+        // Inicio el proceso
+        Console.WriteLine("Comenzando");
 
         // 1. Empiezo a medir
         stats.Empezar();

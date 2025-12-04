@@ -3,14 +3,14 @@ using System.Diagnostics;
 
 namespace UniversalCompressor.Logica
 {
-    // Clase para guardar los datos
+    // Clase encargada de capturar y calcular las métricas de rendimiento
     public class MisEstadisticas
     {
         public long Tiempo { get; set; }
         public long Memoria { get; set; }
         public double Porcentaje { get; set; }
 
-        // Variables auxiliares privadas
+        // Variables privadas para el estado interno de la medición
         private Stopwatch _reloj;
         private long _memoriaInicial;
 
@@ -19,10 +19,11 @@ namespace UniversalCompressor.Logica
             _reloj = new Stopwatch();
         }
 
-        // Llamar a esto antes de empezar el algoritmo
+        // Inicializa el proceso de medición limpiando el entorno previo
         public void Empezar()
         {
-            // Limpiamos la basura primero para que sea más exacto
+            // Se fuerza la recolección de basura para asegurar que la medición de memoria inicie desde una base limpia y no haya algo que interfiera
+           
             GC.Collect();
             GC.WaitForPendingFinalizers();
 
@@ -30,7 +31,7 @@ namespace UniversalCompressor.Logica
             _reloj.Restart();
         }
 
-        // Llamar a esto justo después de terminar
+        // Finaliza la medición y realiza los cálculos de las estadísticas
         public void Terminar(long original, long comprimido)
         {
             _reloj.Stop();
@@ -38,11 +39,13 @@ namespace UniversalCompressor.Logica
 
             Tiempo = _reloj.ElapsedMilliseconds;
 
-            // Calculo la diferencia de memoria
+            // Se calcula la diferencia de memoria consumida durante el proceso
             Memoria = memoriaFinal - _memoriaInicial;
-            if (Memoria < 0) Memoria = 0; // Por si acaso da negativo
 
-            // Calculo de la tasa
+            // Validación para evitar valores negativos 
+            if (Memoria < 0) Memoria = 0;
+
+            // Cálculo de la tasa de compresión 
             if (original > 0)
             {
                 double division = (double)comprimido / original;
@@ -54,7 +57,7 @@ namespace UniversalCompressor.Logica
             }
         }
 
-        // Método para imprimir rápido
+        // Genera una cadena de texto formateada con el resumen de los resultados
         public string ObtenerResumen()
         {
             return "Tiempo: " + Tiempo + "ms | Memoria: " + Memoria + " bytes | Tasa: " + Math.Round(Porcentaje, 2) + "%";
