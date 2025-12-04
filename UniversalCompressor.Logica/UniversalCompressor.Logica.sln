@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36616.10 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalCompressor.Logica", "UniversalCompressor.Logica.csproj", "{7738B8C2-9567-40E4-9427-97AE898B5C19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebasConsole", "..\PruebasConsole\PruebasConsole.csproj", "{155973BE-203D-4923-A3DE-0F008F1BE023}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7738B8C2-9567-40E4-9427-97AE898B5C19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7738B8C2-9567-40E4-9427-97AE898B5C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7738B8C2-9567-40E4-9427-97AE898B5C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7738B8C2-9567-40E4-9427-97AE898B5C19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{155973BE-203D-4923-A3DE-0F008F1BE023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{155973BE-203D-4923-A3DE-0F008F1BE023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{155973BE-203D-4923-A3DE-0F008F1BE023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{155973BE-203D-4923-A3DE-0F008F1BE023}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {72639332-CA12-48CD-9044-F23A8128FFDD}
+	EndGlobalSection
+EndGlobal
