@@ -12,16 +12,6 @@ Universal Compressor es una aplicación de escritorio desarrollada en C# (.NET 8
 
 ---
 
-## 👥 Equipo de Desarrollo
-
-| Estudiante | Carné | Rol / Responsabilidades |
-| :--- | :--- | :--- |
-| **Camila Lizano Brenes** | 2024255324 | **Interfaz Gráfica (UI)** <br> Arquitectura de la aplicación, manejo de eventos y orquestación. |
-| **Jimena Castillo Campos** | 2024090066 | **Algoritmos I** <br> Implementación de Huffman (Árbol binario) y LZ77 (Ventana deslizante). |
-| **Dylan Mora Porras** | 2024080786 | **Algoritmos II & Backend** <br> Implementación de LZ78, Módulo de Estadísticas y Empaquetado binario (`.myzip`). |
-
----
-
 ## 🚀 Funcionalidades
 
 ### 1. Algoritmos de Compresión
